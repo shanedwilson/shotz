@@ -1,0 +1,17 @@
+{
+    "locations" : [
+        {
+            "locationImg" : "",
+            "name" : "Starbucks",
+            "address": "1 Terminal Dr #325, Nashville, TN 37214",
+            "time": "Morning"
+        },
+
+        {
+            "locationImg" : "",
+            "name" : "St. Izzy's Of The East",
+            "address": "2903 Glenmeade Dr, Nashville, TN 37216",
+            "time": "Evening"
+        }
+    ]
+}
