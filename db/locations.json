@@ -1,17 +1,31 @@
 {
     "locations" : [
         {
-            "locationImg" : "",
-            "name" : "Starbucks",
-            "address": "1 Terminal Dr #325, Nashville, TN 37214",
+            "locationImg" : "https://cdn.styleblueprint.com/wp-content/uploads/2016/10/NashCraft.jpg",
+            "name" : "Nashville Craft Distillery",
+            "address": "514 Hagan St, Nashville, TN 37203",
             "time": "Morning"
         },
 
         {
-            "locationImg" : "",
-            "name" : "St. Izzy's Of The East",
-            "address": "2903 Glenmeade Dr, Nashville, TN 37216",
+            "locationImg" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwB8euX9njd--vGrPXR_Q3SGUHO7jkLdOCJjYreEowXz73akqO",
+            "name" : "H Clark Distillery",
+            "address": "1557 Thompson's Station Rd W, Thompson's Station, TN 37179",
             "time": "Evening"
-        }
+        },
+
+        {
+            "locationImg" : "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Marathon_Motor_Works_1.jpg/1200px-Marathon_Motor_Works_1.jpg",
+            "name" : "Corsair",
+            "address": "1200 Clinton St #110, Nashville, TN 37203",
+            "time": "Afternoon"
+        },
+        
+        {
+            "locationImg" : "https://media-cdn.tripadvisor.com/media/photo-s/12/40/63/83/still-house-for-leiper.jpg",
+            "name" : "Leiper's Fork Distillery",
+            "address": "3381 Southall Rd, Franklin, TN 37064",
+            "time": "After Dark"
+        }        
     ]
 }

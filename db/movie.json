@@ -1,0 +1,10 @@
+{
+    "movie" : [
+        {
+            "Name" : "Tennessee's Craft Distillers",
+            "Genre" : "Documentary",
+            "Estimated Release Date" : "September 2019",
+            "Description": "A look at the burgeoning Tennessee craft distillery industry."
+        }
+    ]    
+}
