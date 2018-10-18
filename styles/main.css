@@ -1,7 +1,12 @@
 body {
-    background-color: gray;
+    background-color: lightgray;
 }
 
 #title {
     text-align: center;
+}
+
+#passport {
+    max-width: 250px;
+    max-height: 250px;
 }
