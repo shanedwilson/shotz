@@ -2,19 +2,21 @@ const writeLocations = arrayofLocations => {
     let domString = "";
     arrayofLocations.forEach(location => {
         domString += `
-            <div class="
-                    location card col-md-2 m-3 mx-auto">
+            <div class="location card col-md-2 m-3 mx-auto">
+                    <div class="card-body d-flex flex-column">
                     <div class="thumbnail">
                         <img src="${location.locationImg}" 
                         alt="" width="90%">
+                        </div>
                         <div class="caption">
                             <h3 id="thumbnail-label" class="text-center">${location.name}</h3>
                             <p>
                                 <span class="address">${location.address}</span>
                             </p>
                         </div>
-                        <div class="caption card-footer">
+                        <div class="caption card-footer mt-auto">
                             <p class="time text-center">${location.time}</p>
+                            
                         </div>
                     </div>
                 </div>
