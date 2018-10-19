@@ -31,4 +31,12 @@ const chosenLocations = (input) => {
     })
 }
 
-export default {writeLocations, chosenLocations}  
+const chosenTime = (selectedBtn) => {
+    console.log(selectedBtn);
+    let locations = $(".location")
+    locations.each((i, location) => {
+        $(location).not(":contains("+selectedBtn+")").hide();
+    })
+}
+
+export default {writeLocations, chosenLocations, chosenTime}  
