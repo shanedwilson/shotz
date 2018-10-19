@@ -6,3 +6,8 @@ $( "#search" ).submit(function( event ) {
     locationsComponent.chosenLocations($(".form-control").val());
     $('.form-control').val("");
 });
+
+$('body').on('click', (e) => {
+    const selectedBtn = $(e.target).closest('button').attr('id');
+    locationsComponent.chosenTime(selectedBtn);
+});
