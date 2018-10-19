@@ -7,7 +7,7 @@ $( "#search" ).submit(function( event ) {
     $('.form-control').val("");
 });
 
-$('body').on('click', (e) => {
+$('button').on('click', (e) => {
     const selectedBtn = $(e.target).closest('button').attr('id');
     locationsComponent.chosenTime(selectedBtn);
 });
