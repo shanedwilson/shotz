@@ -1,5 +1,3 @@
-import events from "../helpers/events.js"
-
 const writeLocations = arrayofLocations => {
     let domString = "";
     arrayofLocations.forEach(location => {
@@ -24,11 +22,13 @@ const writeLocations = arrayofLocations => {
   });
   //write to dom
   $("#locations-div").append(domString);
-  events.eventHandler();
 };
 
 const chosenLocations = (input) => {
-    console.log(input);
+    let locations = $(".location")
+    locations.each((i, location) => {
+        $(location).not(":contains("+input+")").hide();
+    })
 }
 
 export default {writeLocations, chosenLocations}  

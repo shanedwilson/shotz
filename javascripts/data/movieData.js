@@ -1,6 +1,7 @@
 import movieComponent from '../components/movieComponent.js'
 
 // Load Movies
+const loadMovies = () => {
 $.get('../db/movie.json')
     .done(data => {
         movieComponent.writeMovies(data.movie);
@@ -8,3 +9,6 @@ $.get('../db/movie.json')
     .fail(error => {
         console.log(error);
     })
+};
+
+export default {loadMovies}
