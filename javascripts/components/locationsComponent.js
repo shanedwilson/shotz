@@ -3,7 +3,7 @@ const writeLocations = arrayofLocations => {
     arrayofLocations.forEach(location => {
         domString += `
             <div class="
-                    location card col-md-3">
+                    location card col-md-2 m-3 mx-auto">
                     <div class="thumbnail">
                         <img src="${location.locationImg}" 
                         alt="" width="90%">
