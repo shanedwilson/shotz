@@ -1,6 +1,7 @@
 import locationsComponent from '../components/locationsComponent.js'
 
-// Load Movies
+// Load Locations
+const loadLocations = () => {
 $.get('../db/locations.json')
     .done(data => {
         locationsComponent.writeLocations(data.locations);
@@ -8,3 +9,6 @@ $.get('../db/locations.json')
     .fail(error => {
         console.log(error);
     })
+};
+
+export default {loadLocations}
