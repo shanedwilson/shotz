@@ -27,4 +27,8 @@ const writeLocations = arrayofLocations => {
   events.eventHandler();
 };
 
-export default {writeLocations,}  
+const chosenLocations = (input) => {
+    console.log(input);
+}
+
+export default {writeLocations, chosenLocations}  
