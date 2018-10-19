@@ -1,3 +1,5 @@
+import events from "../helpers/events.js"
+
 const writeLocations = arrayofLocations => {
     let domString = "";
     arrayofLocations.forEach(location => {
@@ -22,17 +24,7 @@ const writeLocations = arrayofLocations => {
   });
   //write to dom
   $("#locations-div").append(domString);
-  timeColor();
+  events.eventHandler();
 };
 
-const timeColor = () => {
-    let times = $(".time")
-    console.log(times)
-    times.each( time => {
-        if ($( "p:contains('Morning')" )) {
-            $(time).addClass("warning")
-        }
-    })
-};    
-
-export default {writeLocations}  
+export default {writeLocations,}  
