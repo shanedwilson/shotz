@@ -6,7 +6,7 @@ const writeLocations = arrayofLocations => {
                     <div class="card-body d-flex flex-column">
                     <div class="thumbnail">
                         <img src="${location.locationImg}" 
-                        alt="" width="90%">
+                        alt="" width="100%">
                         </div>
                         <div class="caption">
                             <h3 id="thumbnail-label" class="text-center">${location.name}</h3>
