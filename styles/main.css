@@ -1,5 +1,5 @@
 body {
-    background-color: lightgray;
+    background-color: rgba(141, 150, 126, 1);
 }
 
 #title {
@@ -9,4 +9,14 @@ body {
 #passport {
     max-width: 250px;
     max-height: 250px;
+}
+
+.location {
+    background-color: rgba(196, 77, 17, 1);
+    color: rgba(252, 255, 255, 1);
+}
+
+.movie {
+    background-color: rgba(150, 27, 29, 1);
+    color: rgba(252, 255, 255, 1);
 }

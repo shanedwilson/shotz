@@ -1,10 +1,10 @@
 import locationsComponent from "../components/locationsComponent.js"
 
-$( "#search" ).submit(function( event ) {
-    $( ".form-control" ).blur();
-    event.preventDefault();
+$( "#search" ).keyup(function( event ) {
     locationsComponent.chosenLocations($(".form-control").val());
-    $('.form-control').val("");
+    // event.preventDefault();
+    // $( ".form-control" ).blur();
+    // $('.form-control').val("");
 });
 
 $('button').on('click', (e) => {
