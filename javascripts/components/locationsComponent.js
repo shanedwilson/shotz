@@ -35,6 +35,8 @@ const chosenLocations = (input) => {
 const chosenTime = (selectedBtn) => {
     if (selectedBtn === "All") {
         $(".location").show();
+        $( ".form-control" ).blur();
+        $('.form-control').val("");
     } else {
         let locations = $(".location")
         locations.each((i, location) => {
