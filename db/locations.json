@@ -26,6 +26,34 @@
             "name" : "Leiper's Fork Distillery",
             "address": "3381 Southall Rd, Franklin, TN 37064",
             "time": "After Dark"
-        }        
+        },
+        
+        {
+            "locationImg" : "https://media-cdn.tripadvisor.com/media/photo-s/0d/1b/74/c9/september-17th-visit.jpg",
+            "name" : "Tennessee Hills Distillery",
+            "address" : "127 Fox St, Jonesborough, TN 37659-1309",
+            "time" : "Afternoon"
+        },
+
+        {
+            "locationImg" : "http://sc-photo-tn.com/wp-content/gallery/2009/dickel/dickel01.jpg",
+            "name" : "George Dickel Distillery",
+            "address" : "1950 Cascade Hollow Rd, Normandy, TN",
+            "time" :"Morning"
+        },
+
+        {
+            "locationImg" : "https://media.atre.yardi.com/2/48611/images/The-Visitor-Center-at-Jack-Daniel-Distillery.jpg",
+            "name" : "Jack Daniels Distillery",
+            "address" : "Lyncheburg, TN",
+            "time" : "Evening"
+        },
+
+        {
+            "locationImg" : "http://nashvilleguru.com/officialwebsite/wp-content/uploads/2014/11/Marathon-Village-Nashville-54.jpg",
+            "name" : "Nelson's Greenbrier Distillery",
+            "address" : "1414 Clinton Street Nashville, TN 37203",
+            "time" : "Morning"
+        }
     ]
 }
