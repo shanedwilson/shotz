@@ -28,8 +28,8 @@ const writeLocations = arrayofLocations => {
 
 const chosenLocations = (input) => {
     let locations = $(".location")
-    locations.each((i, location) => {
-        $(location).not(":contains("+input+")").hide();
+    locations.each((i, location) => {       
+        $(location).not(":icontains("+input+")").hide();
     })
 }
 
@@ -49,7 +49,6 @@ const chosenTime = (selectedBtn) => {
 const timeColor = () => {
     let times = $(".time");
     times.each((i, time) => {
-        console.log(time);
         if ($(time).html() === "Morning") {
             $(time).addClass("bg-warning")
         } else if ($(time).html()=== "Afternoon"){
@@ -61,5 +60,11 @@ const timeColor = () => {
         }
     })
 }
+
+$.expr[':'].icontains = $.expr.createPseudo(function(text) {
+    return function(e) {
+        return $(e).text().toUpperCase().indexOf(text.toUpperCase()) >= 0;
+    };
+});
 
 export default {writeLocations, chosenLocations, chosenTime}  
