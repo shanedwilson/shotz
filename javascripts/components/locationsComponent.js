@@ -30,6 +30,7 @@ const chosenLocations = (input) => {
     let locations = $(".location")
     locations.each((i, location) => {       
         $(location).not(":icontains("+input+")").hide();
+        $(".location:icontains("+input+")").show();
     })
 }
 
