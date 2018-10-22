@@ -28,10 +28,10 @@ const writeLocations = arrayofLocations => {
 
 const chosenLocations = (input) => {
     let locations = $(".location")
-    locations.each(() => {       
-        if ($(this).not(":icontains("+input+")")) {
-        $(this).hide();
-        }
+    locations.each((i, location) => {       
+        $(location).not(":icontains("+input+")").hide();
+        $(".location:icontains("+input+")").show();
+
     })
 }
 
