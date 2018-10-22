@@ -27,8 +27,7 @@ const writeLocations = arrayofLocations => {
 };
 
 const chosenLocations = (input) => {
-    let locations = $(".location")
-    locations.each((i, location) => {       
+    $(".location").each((i, location) => {       
         $(location).not(":icontains("+input+")").hide();
         $(".location:icontains("+input+")").show();
     })
@@ -40,8 +39,7 @@ const chosenTime = (selectedBtn) => {
         $( ".form-control" ).blur();
         $('.form-control').val("");
     } else {
-        let locations = $(".location");
-        locations.each((i, location) => {
+        $(".location").each((i, location) => {
             $(location).not(":contains("+selectedBtn+")").hide();
         })
     }    
