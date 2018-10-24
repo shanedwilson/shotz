@@ -17,8 +17,8 @@ $('button').on('click', (e) => {
     locationsComponent.chosenTime(selectedBtn);
 });
 
-$('body').on('click', (e) => {
+$('#movie-container').on('click', (e) => {
     const selectedMovieId = $(e.target).closest('.movie').attr('id');
     movieComponent.selectedMovie(selectedMovieId);
-    locationsData.loadLocationsForMovie(selectedMovieId);
+    locationsComponent.selectedLocationsView(selectedMovieId);
 })

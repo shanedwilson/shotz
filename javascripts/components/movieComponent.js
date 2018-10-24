@@ -1,4 +1,6 @@
 import movieData from "../data/movieData.js";
+import locationsComponent from "../components/locationsComponent.js"
+import locationsData from "../data/locationsData.js"
 
 const writeMovies = arrayofMovies => {
     let domString = '';
@@ -33,6 +35,7 @@ const initializeMovieView = () => {
   movieData.loadMovies()
   .then((movies) => {
     writeMovies(movies);
+    locationsData.loadLocationsForMovie(movies);
   })
   .catch((error) => {
     console.error(error);

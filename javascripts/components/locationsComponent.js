@@ -78,4 +78,14 @@ const initialLocationsView = () => {
     })
 }
 
-export default {initialLocationsView, chosenLocations, chosenTime}  
+const selectedLocationsView = (selectedMovieId) => {
+    // locationsData.loadLocationsForMovie(selectedMovieId)
+    // .then((movieLocations) => {
+    //     console.log(movieLocations);
+    // })
+    // .catch((error) => {
+    //     console.error(error);
+    // })
+}
+
+export default {initialLocationsView, chosenLocations, chosenTime, selectedLocationsView}  
