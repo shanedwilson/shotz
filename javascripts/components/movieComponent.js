@@ -4,7 +4,7 @@ const writeMovies = arrayofMovies => {
     let domString = '';
     arrayofMovies.forEach(movie => {
     domString += `
-    <div class="movie card col-md-3 px-0 m-3" style="width: 18rem;">
+    <div id="${movie.id}"class="movie card col-md-3 px-0 m-3" style="width: 18rem;">
     <div class="card-body">
       <div class="thumbnail mb-3">
       <img src="${movie.movieImg}" 
