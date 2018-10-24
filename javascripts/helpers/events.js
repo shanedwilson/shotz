@@ -1,4 +1,6 @@
 import locationsComponent from "../components/locationsComponent.js"
+import movieComponent from "../components/movieComponent.js"
+import locationsData from "../data/locationsData.js"
 
 $( "#search" ).keyup(function( event ) {
     locationsComponent.chosenLocations($(".form-control").val());
@@ -16,6 +18,7 @@ $('button').on('click', (e) => {
 });
 
 $('body').on('click', (e) => {
-    const selectedMovie = $(e.target).closest('.movie').attr('id');
-    console.log('you clicked ', selectedMovie);
+    const selectedMovieId = $(e.target).closest('.movie').attr('id');
+    movieComponent.selectedMovie(selectedMovieId);
+    locationsData.loadLocationsForMovie(selectedMovieId);
 })
