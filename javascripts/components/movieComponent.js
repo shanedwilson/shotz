@@ -1,3 +1,5 @@
+import movieData from "../data/movieData.js";
+
 const writeMovies = arrayofMovies => {
     let domString = '';
     arrayofMovies.forEach(movie => {
@@ -17,6 +19,16 @@ const writeMovies = arrayofMovies => {
     `
     });
     $("#movie-div").append(domString);
-};    
+};
 
-export default {writeMovies}    
+const initializeMovieView = () => {
+  movieData.loadMovies()
+  .then((movies) => {
+    writeMovies(movies);
+  })
+  .catch((error) => {
+    console.error(error);
+  })
+}
+
+export default {initializeMovieView}    

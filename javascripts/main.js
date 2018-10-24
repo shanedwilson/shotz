@@ -1,9 +1,9 @@
-import locationsData from "./data/locationsData.js"
-import movieData from "./data/movieData.js"
+import locationsComponent from "./components/locationsComponent.js"
+import movieComponent from "./components/movieComponent.js"
 
 const loadApp = () => {
-    locationsData.loadLocations();
-    movieData.loadMovies();
+    locationsComponent.initialLocationsView();
+    movieComponent.initializeMovieView();
 }
 
 loadApp();
