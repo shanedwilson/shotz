@@ -1,3 +1,5 @@
+import locationsData from '../data/locationsData.js'
+
 const writeLocations = arrayofLocations => {
     let domString = "";
     arrayofLocations.forEach(location => {
@@ -66,4 +68,14 @@ $.expr[':'].icontains = $.expr.createPseudo(function(text) {
     };
 });
 
-export default {writeLocations, chosenLocations, chosenTime}  
+const initialLocationsView = () => {
+    locationsData.loadLocations()
+    .then((locations) => {
+        writeLocations(locations);
+    })
+    .catch((error) => {
+        console.error(error);
+    })
+}
+
+export default {initialLocationsView, chosenLocations, chosenTime}  
