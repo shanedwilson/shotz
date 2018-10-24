@@ -1,5 +1,5 @@
 import locationsComponent from "../components/locationsComponent.js"
-import selectedMovieComponent from "../components/selectedMovieComponent.js"
+import movieComponent from "../components/movieComponent.js"
 import locationsData from "../data/locationsData.js"
 
 $( "#search" ).keyup(function( event ) {
@@ -19,6 +19,6 @@ $('button').on('click', (e) => {
 
 $('body').on('click', (e) => {
     const selectedMovieId = $(e.target).closest('.movie').attr('id');
-    selectedMovieComponent.selectedMovie(selectedMovieId);
+    movieComponent.selectedMovie(selectedMovieId);
     locationsData.loadLocationsForMovie(selectedMovieId);
 })

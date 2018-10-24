@@ -21,6 +21,14 @@ const writeMovies = arrayofMovies => {
     $("#movie-div").append(domString);
 };
 
+const selectedMovie = (selectedMovieId) => {
+  $(".movie").each((i, movie) => {
+    if (selectedMovieId !== movie.id) {
+      $(movie).addClass('d-none');
+    }
+  })
+}
+
 const initializeMovieView = () => {
   movieData.loadMovies()
   .then((movies) => {
@@ -31,4 +39,4 @@ const initializeMovieView = () => {
   })
 }
 
-export default {initializeMovieView}    
+export default {initializeMovieView, selectedMovie}    
