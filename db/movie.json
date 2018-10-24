@@ -1,10 +1,33 @@
 {
     "movie" : [
         {
+            "id": "movie1",
+            "movieImg" : "http://s3.amazonaws.com/mscwordpresscontent/wa/wp-content/uploads/2017/11/NashvilleCraft_KaitlinPointer8_1600-1240x696.jpg",
             "name" : "Tennessee's Craft Distillers",
             "genre" : "Documentary",
             "release" : "September 2019",
-            "description": "A look at the burgeoning Tennessee craft distillery industry."
+            "description": "A look at the burgeoning Tennessee craft distillery industry.",
+            "locations": ["location1", "location2", "location3", "location4", "location5", "location6", "location7", "location8"]
+        },
+
+        {
+            "id": "movie2",
+            "movieImg" : "https://thumbnails.trvl-media.com/G3rrIGDQ7lGsF-9HmBefcHVvn54=/cdn.lemediavault.com/images/053f3399026f3dd913fe83d96cd28856.jpeg",
+            "name" : "Nashville's Distillery Revival",
+            "genre" : "Documentary",
+            "release" : "September 2020",
+            "description": "Examining the new distilling boom in Nashville, TN.",
+            "locations": ["location1", "location3", "location8"]
+        },
+
+        {
+            "id": "movie3",
+            "movieImg" : "https://static1.squarespace.com/static/5614154fe4b0f59e84588474/5627bc02e4b00690941b5b3d/5627bd03e4b0e30e13f1f451/1445444869206/HC2015-7938-3.jpg",
+            "name" : "The Middle Tennessee Craft Beer Explosion",
+            "genre" : "Documentary",
+            "release" : "April 2021",
+            "description": "A deep look at Middle TN's surge in craft breweries",
+            "locations": ["location9", "location10", "location11"]
         }
     ]    
 }
