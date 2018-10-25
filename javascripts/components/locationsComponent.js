@@ -42,6 +42,7 @@ const chosenTime = (selectedBtn) => {
         $('.form-control').val("");
     } else {
         $(".location").each((i, location) => {
+            $(location).show();
             $(location).not(":contains("+selectedBtn+")").hide();
         })
     }    

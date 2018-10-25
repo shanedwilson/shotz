@@ -31,15 +31,34 @@ const selectedMovie = (selectedMovieId) => {
   })
 }
 
+const clickedMovieLocations = (movies, movieId) => {
+  movies.forEach(movie => {
+    if (movie.id === movieId) {
+      let movieLocations = movie.locations;
+      console.log(movieLocations);
+    }
+  })
+}
+
 const initializeMovieView = () => {
   movieData.loadMovies()
   .then((movies) => {
     writeMovies(movies);
-    locationsData.loadLocationsForMovie(movies);
   })
   .catch((error) => {
     console.error(error);
   })
 }
 
-export default {initializeMovieView, selectedMovie}    
+const loadMovieLocations = (movieId) => {
+  movieData.loadMovies()
+  .then((movies) => {
+    clickedMovieLocations(movies, movieId);
+  })
+  .catch((error) => {
+    console.error('loadmovielocations', error);
+  })
+}
+
+
+export default {initializeMovieView, selectedMovie, loadMovieLocations}    
