@@ -4,7 +4,7 @@ const writeLocations = arrayofLocations => {
     let domString = "";
     arrayofLocations.forEach(location => {
         domString += `
-                <div class="location card col-md-3 px-0 m-3">
+                <div id="${location.id}"class="location card col-md-3 px-0 m-3">
                     <div class="card-body d-flex flex-column">
                         <div class="thumbnail">
                             <img src="${location.locationImg}" 
@@ -31,7 +31,7 @@ const writeLocations = arrayofLocations => {
 const chosenLocations = (input) => {
     $(".location").each((i, location) => {       
         $(location).not(":icontains("+input+")").hide();
-        $(".location:icontains("+input+")").show();
+        // $(".location:icontains("+input+")").show();
     })
 }
 
@@ -42,6 +42,7 @@ const chosenTime = (selectedBtn) => {
         $('.form-control').val("");
     } else {
         $(".location").each((i, location) => {
+            // $(location).show();
             $(location).not(":contains("+selectedBtn+")").hide();
         })
     }    
@@ -78,4 +79,14 @@ const initialLocationsView = () => {
     })
 }
 
-export default {initialLocationsView, chosenLocations, chosenTime}  
+const hideLocations = (movieLocations) => {
+    $(".location").each((i, location) => {   
+        for (let i = 0; i < movieLocations.length; i++) {
+            if( $.inArray(location.id, movieLocations) == -1 ) {
+            $(location).hide();
+            }
+        }
+    })
+};
+   
+export default {initialLocationsView, chosenLocations, chosenTime, hideLocations}  

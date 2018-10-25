@@ -1,4 +1,6 @@
 import movieData from "../data/movieData.js";
+import locationsComponent from "../components/locationsComponent.js"
+import locationsData from "../data/locationsData.js"
 
 const writeMovies = arrayofMovies => {
     let domString = '';
@@ -29,6 +31,15 @@ const selectedMovie = (selectedMovieId) => {
   })
 }
 
+const clickedMovieLocations = (movies, movieId) => {
+  movies.forEach(movie => {
+    if (movie.id === movieId) {
+      let movieLocations = movie.locations;
+      locationsComponent.hideLocations(movieLocations);
+    }
+  })
+}
+
 const initializeMovieView = () => {
   movieData.loadMovies()
   .then((movies) => {
@@ -39,4 +50,15 @@ const initializeMovieView = () => {
   })
 }
 
-export default {initializeMovieView, selectedMovie}    
+const loadMovieLocations = (movieId) => {
+  movieData.loadMovies()
+  .then((movies) => {
+    clickedMovieLocations(movies, movieId);
+  })
+  .catch((error) => {
+    console.error('loadmovielocations', error);
+  })
+}
+
+
+export default {initializeMovieView, selectedMovie, loadMovieLocations}    
