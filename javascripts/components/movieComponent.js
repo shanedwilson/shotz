@@ -36,6 +36,7 @@ const clickedMovieLocations = (movies, movieId) => {
     if (movie.id === movieId) {
       let movieLocations = movie.locations;
       locationsComponent.hideLocations(movieLocations);
+      $('#Back').show();
     }
   })
 }

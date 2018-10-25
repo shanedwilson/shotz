@@ -21,3 +21,9 @@ $('#movie-container').on('click', (e) => {
     movieComponent.selectedMovie(selectedMovieId);
     movieComponent.loadMovieLocations(selectedMovieId);
 })
+
+$('#Back').on('click', (e) => {
+    $('#Back').hide();
+    locationsComponent.initialLocationsView();
+    movieComponent.initializeMovieView();
+})
