@@ -1,7 +1,7 @@
 import locationsComponent from "../components/locationsComponent.js"
 import movieComponent from "../components/movieComponent.js"
 
-$( "#search" ).keyup(function( event ) {
+$( "#search" ).keyup(function () {
     locationsComponent.chosenLocations($(".form-control").val());
 });
 
