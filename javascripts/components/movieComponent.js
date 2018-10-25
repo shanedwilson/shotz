@@ -35,7 +35,7 @@ const clickedMovieLocations = (movies, movieId) => {
   movies.forEach(movie => {
     if (movie.id === movieId) {
       let movieLocations = movie.locations;
-      console.log(movieLocations);
+      locationsComponent.hideLocations(movieLocations);
     }
   })
 }
