@@ -23,6 +23,7 @@ const writeMovies = arrayofMovies => {
     $("#movie-div").append(domString);
 };
 
+//Function to show clicked movie
 const selectedMovie = (selectedMovieId) => {
   $(".movie").each((i, movie) => {
     if (selectedMovieId !== movie.id) {
@@ -31,6 +32,7 @@ const selectedMovie = (selectedMovieId) => {
   })
 }
 
+//Function to display matched locations to clicked movie
 const clickedMovieLocations = (movies, movieId) => {
   movies.forEach(movie => {
     if (movie.id === movieId) {
@@ -41,6 +43,7 @@ const clickedMovieLocations = (movies, movieId) => {
   })
 }
 
+//Data for movie cards
 const initializeMovieView = () => {
   movieData.loadMovies()
   .then((movies) => {
@@ -52,6 +55,7 @@ const initializeMovieView = () => {
   })
 }
 
+//Data for matching clicked movie to locations
 const loadMovieLocations = (movieId) => {
   movieData.loadMovies()
   .then((movies) => {
@@ -62,15 +66,4 @@ const loadMovieLocations = (movieId) => {
   })
 }
 
-// const loadMovieLocationsView = (movieId) => {
-//   getMovieLocationsArray(movieId)
-//   .then((movieLocations) => {
-//       return matchMovieLocations(movieLocations);
-//   })    
-//   .catch((error) => {
-//       console.error("loadMovieLocationsView error", error);
-//   })
-// }
-
-
-export default {initializeMovieView, selectedMovie, loadMovieLocations}    
+export default {initializeMovieView, selectedMovie, loadMovieLocations,}    

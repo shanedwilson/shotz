@@ -12,21 +12,23 @@ const loadLocations = () => {
 
 }
 
-let matchedLocationArray = [];
-
-const locationsForMovies = (selectedMovieLocations) => {
+const locationsForMovies = (movies) => {
     let matchedLocationArray = [];
     return new Promise((resolve, reject) => {
         $.get('../db/locations.json')
         .done((data) => {
-            selectedMovieLocations.forEach((movieLocation) => {
+            movies.forEach((movie) => {
                 data.locations.forEach((location) => {
-                    if (location.if === movieLocation) {
-                        matchedLocationArray.push(location);
+                    movie.locations.forEach((movieLocations) => {
+                    if (location.id === movieLocations) {
+                        matchedLocationArray.push(location.id);
                     }
+                    console.log(matchedLocationArray);
+                    })
                 })
             })
-            resolve(moviesWithLocations);
+            console.log(matchedLocationArray);
+            resolve(matchedLocationArray);
         })
         .fail((error) => {
             reject('error loadLocationsOnMovie', error);
