@@ -45,6 +45,7 @@ const initializeMovieView = () => {
   movieData.loadMovies()
   .then((movies) => {
     writeMovies(movies);
+    return locationsData.locationsForMovies(movies);
   })
   .catch((error) => {
     console.error(error);
@@ -60,6 +61,16 @@ const loadMovieLocations = (movieId) => {
     console.error('loadmovielocations', error);
   })
 }
+
+// const loadMovieLocationsView = (movieId) => {
+//   getMovieLocationsArray(movieId)
+//   .then((movieLocations) => {
+//       return matchMovieLocations(movieLocations);
+//   })    
+//   .catch((error) => {
+//       console.error("loadMovieLocationsView error", error);
+//   })
+// }
 
 
 export default {initializeMovieView, selectedMovie, loadMovieLocations}    

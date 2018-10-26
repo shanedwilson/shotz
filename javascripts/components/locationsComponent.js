@@ -16,6 +16,7 @@ const writeLocations = arrayofLocations => {
                                 <span class="address">${location.address}</span>
                             </p>
                         </div>
+                        <div class="text-center mt-auto">Used in movies</div>
                         <div class="caption card-footer mt-auto">
                             <p class="time text-center">${location.time}</p>
                         </div>    
@@ -31,7 +32,6 @@ const writeLocations = arrayofLocations => {
 const chosenLocations = (input) => {
     $(".location").each((i, location) => {       
         $(location).not(":icontains("+input+")").hide();
-        // $(".location:icontains("+input+")").show();
     })
 }
 
