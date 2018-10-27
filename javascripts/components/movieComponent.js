@@ -5,6 +5,7 @@ import locationsData from "../data/locationsData.js"
 const writeMovies = arrayofMovies => {
     let domString = '';
     arrayofMovies.forEach(movie => {
+      let locationCount = movie.locations.length;
     domString += `
     <div id="${movie.id}"class="movie card col-md-3 px-0 m-3" style="width: 18rem;">
     <div class="card-body">
@@ -16,6 +17,7 @@ const writeMovies = arrayofMovies => {
       <h6 class="card-subtitle mb-2">Genre: ${movie.genre}</h6>
       <h6 class="card-subtitle mb-2">Est. Release Date: ${movie.release}</h6>
       <p class="card-text">${movie.description}</p>
+      <div class="location-count">Locations Used: ${locationCount}</div>
     </div>
   </div>
     `

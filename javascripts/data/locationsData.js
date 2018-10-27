@@ -12,26 +12,46 @@ const loadLocations = () => {
 
 }
 
+// const locationsForMovies = (movies) => {
+//     let matchedLocationArray = [];
+//     return new Promise((resolve, reject) => {
+//         $.get('../db/locations.json')
+//         .done((data) => {
+//             movies.forEach((movie) => {
+//                 data.locations.forEach((location) => {
+//                     movie.locations.forEach((movieLocations) => {
+//                     if (location.id === movieLocations) {
+//                         matchedLocationArray.push(location.id);
+//                     }
+//                     console.log(matchedLocationArray);
+//                     })
+//                 })
+//             })
+//             console.log(matchedLocationArray);
+//             resolve(matchedLocationArray);
+//         })
+//         .fail((error) => {
+//             reject('error loadLocationsOnMovie', error);
+//         })
+//     })
+// }
+
 const locationsForMovies = (movies) => {
-    let matchedLocationArray = [];
     return new Promise((resolve, reject) => {
         $.get('../db/locations.json')
-        .done((data) => {
-            movies.forEach((movie) => {
-                data.locations.forEach((location) => {
-                    movie.locations.forEach((movieLocations) => {
-                    if (location.id === movieLocations) {
-                        matchedLocationArray.push(location.id);
-                    }
-                    console.log(matchedLocationArray);
+            .done((data) => {
+             movies.forEach((movie) => {
+                    const locationsWithMovies = $(data.locations).map(location => {
+                        console.log(location);
+                        const matchingMovies = $(movie.locations).filter(movie => movie.locations === location.id)
+                        location.movies = matchingMovies
+                        return location
                     })
-                })
+                    resolve(locationsWithMovies)
             })
-            console.log(matchedLocationArray);
-            resolve(matchedLocationArray);
-        })
-        .fail((error) => {
-            reject('error loadLocationsOnMovie', error);
+            .fail((error) => {
+                reject('error locationsForMovies', error);
+            })
         })
     })
 }
