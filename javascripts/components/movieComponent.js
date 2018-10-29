@@ -36,19 +36,20 @@ const selectedMovie = (selectedMovieId) => {
       $(movie).hide()
     }
   })
-  movieData.loadMovies()
-  .then((movies) => {
-    movies.forEach(movie => {
-      if (movie.id === selectedMovieId) {
-        let movieLocations = movie.locations;
-        locationsComponent.hideLocations(movieLocations);
-        $('#Back').show();
-      }
-    })
-  })
-  .catch((error) => {
-    console.error('loadmovielocations', error);
-  })
+  movieData.getMovieLocations(selectedMovieId);
+  // movieData.loadMovies()
+  // .then((movies) => {
+  //   movies.forEach(movie => {
+  //     if (movie.id === selectedMovieId) {
+  //       let movieLocations = movie.locations;
+  //       locationsComponent.hideLocations(movieLocations);
+  //       $('#Back').show();
+  //     }
+  //   })
+  // })
+  // .catch((error) => {
+  //   console.error('loadmovielocations', error);
+  // })
 }
 
 //Data for movie cards

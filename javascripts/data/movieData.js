@@ -11,4 +11,19 @@ const loadMovies = () => {
     });    
 }
 
-export default {loadMovies, }
+const getMovieLocations = (selectedMovieId) => {
+    return new Promise((resolve, reject) => {
+        $.get('../db/movie.json')
+            .done(data => {
+                const selectMovieLocations = data.movie.find(movie =>{
+                    return movie.id === selectedMovieId;
+                }).locations;
+                console.log(selectMovieLocations);
+                resolve(selectMovieLocations);
+            })
+            .fail(error => {
+                reject(error)
+            })
+    })
+}
+export default {loadMovies, getMovieLocations}
