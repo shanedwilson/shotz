@@ -36,26 +36,10 @@ const selectedMovie = (selectedMovieId) => {
       $(movie).hide()
     }
   })
-}
-
-//Data for movie cards
-const initializeMovieView = () => {
-  movieData.loadMovies()
-  .then((movies) => {
-    writeMovies(movies);
-    return locationsData.locationsForMovies(movies);
-  })
-  .catch((error) => {
-    console.error(error);
-  })
-}
-
-//Data for matching clicked movie to locations then function to hide irrelevant locations and show back button
-const loadMovieLocations = (movieId) => {
   movieData.loadMovies()
   .then((movies) => {
     movies.forEach(movie => {
-      if (movie.id === movieId) {
+      if (movie.id === selectedMovieId) {
         let movieLocations = movie.locations;
         locationsComponent.hideLocations(movieLocations);
         $('#Back').show();
@@ -67,4 +51,15 @@ const loadMovieLocations = (movieId) => {
   })
 }
 
-export default {initializeMovieView, selectedMovie, loadMovieLocations,}    
+//Data for movie cards
+const initializeMovieView = () => {
+  movieData.loadMovies()
+  .then((movies) => {
+    writeMovies(movies);
+  })
+  .catch((error) => {
+    console.error(error);
+  })
+}
+
+export default {initializeMovieView, selectedMovie,}    
