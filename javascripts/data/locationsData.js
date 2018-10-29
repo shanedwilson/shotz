@@ -12,6 +12,4 @@ const loadLocations = () => {
 
 }
 
-
-
 export default {loadLocations,}

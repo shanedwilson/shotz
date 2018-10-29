@@ -19,7 +19,6 @@ $('button').on('click', (e) => {
 $('#movie-container').on('click', (e) => {
     const selectedMovieId = $(e.target).closest('.movie').attr('id');
     movieComponent.selectedMovie(selectedMovieId);
-    movieComponent.loadMovieLocations(selectedMovieId);
 })
 
 $('#Back').on('click', (e) => {

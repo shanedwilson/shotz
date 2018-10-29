@@ -16,6 +16,7 @@ const writeLocations = arrayofLocations => {
                                 <span class="address">${location.address}</span>
                             </p>
                         </div>
+                        <div class="text-center mt-auto">Used in movies</div>
                         <div class="caption card-footer mt-auto">
                             <p class="time text-center">${location.time}</p>
                         </div>    
@@ -28,13 +29,14 @@ const writeLocations = arrayofLocations => {
   timeColor();
 };
 
+//Search function for locations
 const chosenLocations = (input) => {
     $(".location").each((i, location) => {       
         $(location).not(":icontains("+input+")").hide();
-        // $(".location:icontains("+input+")").show();
     })
 }
 
+//Function for time buttons
 const chosenTime = (selectedBtn) => {
     if (selectedBtn === "All") {
         $(".location").show();
@@ -48,6 +50,7 @@ const chosenTime = (selectedBtn) => {
     }    
 }
 
+//Function to match location footer color to time button color
 const timeColor = () => {
     let times = $(".time");
     times.each((i, time) => {
@@ -63,12 +66,14 @@ const timeColor = () => {
     })
 }
 
+//Psuedo for jquery contains to change case of input text
 $.expr[':'].icontains = $.expr.createPseudo(function(text) {
     return function(e) {
         return $(e).text().toUpperCase().indexOf(text.toUpperCase()) >= 0;
     };
 });
 
+//Data for initial all locations view
 const initialLocationsView = () => {
     locationsData.loadLocations()
     .then((locations) => {
@@ -79,6 +84,7 @@ const initialLocationsView = () => {
     })
 }
 
+//Function to show matched locations to clicked movie
 const hideLocations = (movieLocations) => {
     $(".location").each((i, location) => {   
         for (let i = 0; i < movieLocations.length; i++) {
