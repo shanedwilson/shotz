@@ -12,43 +12,19 @@ const loadLocations = () => {
 
 }
 
-// const locationsForMovies = (movies) => {
-//     let matchedLocationArray = [];
-//     return new Promise((resolve, reject) => {
-//         $.get('../db/locations.json')
-//         .done((data) => {
-//             movies.forEach((movie) => {
-//                 data.locations.forEach((location) => {
-//                     movie.locations.forEach((movieLocations) => {
-//                     if (location.id === movieLocations) {
-//                         matchedLocationArray.push(location.id);
-//                     }
-//                     console.log(matchedLocationArray);
-//                     })
-//                 })
-//             })
-//             console.log(matchedLocationArray);
-//             resolve(matchedLocationArray);
-//         })
-//         .fail((error) => {
-//             reject('error loadLocationsOnMovie', error);
-//         })
-//     })
-// }
-
 const locationsForMovies = (movies) => {
     return new Promise((resolve, reject) => {
         $.get('../db/locations.json')
             .done((data) => {
+                let moviesForLocations = [];
              movies.forEach((movie) => {
-                    const locationsWithMovies = $(data.locations).map(location => {
-                        console.log(location);
-                        const matchingMovies = $(movie.locations).filter(movie => movie.locations === location.id)
-                        location.movies = matchingMovies
-                        return location
+                    const locationsWithMovies = data.locations.map(location => {
+                        const matchingMovies = movie.locations.filter(specLocation => specLocation.includes(location.id))
+                        moviesForLocations.push(matchingMovies)
+                        // return specLocation
                     })
-                    resolve(locationsWithMovies)
             })
+            console.log(moviesForLocations)
             .fail((error) => {
                 reject('error locationsForMovies', error);
             })

@@ -8,18 +8,22 @@ const writeMovies = arrayofMovies => {
       let locationCount = movie.locations.length;
     domString += `
     <div id="${movie.id}"class="movie card col-md-3 px-0 m-3" style="width: 18rem;">
-    <div class="card-body">
-      <div class="thumbnail mb-3">
-      <img src="${movie.movieImg}" 
-      alt="" width="100%">
+      <div class="card-body">
+        <div class="thumbnail mb-3">
+        <img src="${movie.movieImg}" 
+        alt="" width="100%">
+        </div>
+        <h5 class="card-title text-center">${movie.name}</h5>
+        <h6 class="card-subtitle mb-2">Genre: ${movie.genre}</h6>
+        <h6 class="card-subtitle mb-2">Est. Release Date: ${movie.release}</h6>
+        <div>
+          <p class="card-text">${movie.description}</p>
+        </div>
+      </div>  
+      <div class="location-count card-footer mt-auto">
+        <p class="text-center">Locations Used: ${locationCount}</p>
       </div>
-      <h5 class="card-title text-center">${movie.name}</h5>
-      <h6 class="card-subtitle mb-2">Genre: ${movie.genre}</h6>
-      <h6 class="card-subtitle mb-2">Est. Release Date: ${movie.release}</h6>
-      <p class="card-text">${movie.description}</p>
-      <div class="location-count">Locations Used: ${locationCount}</div>
     </div>
-  </div>
     `
     });
     $("#movie-div").append(domString);
@@ -29,18 +33,7 @@ const writeMovies = arrayofMovies => {
 const selectedMovie = (selectedMovieId) => {
   $(".movie").each((i, movie) => {
     if (selectedMovieId !== movie.id) {
-      $(movie).addClass('d-none');
-    }
-  })
-}
-
-//Function to display matched locations to clicked movie
-const clickedMovieLocations = (movies, movieId) => {
-  movies.forEach(movie => {
-    if (movie.id === movieId) {
-      let movieLocations = movie.locations;
-      locationsComponent.hideLocations(movieLocations);
-      $('#Back').show();
+      $(movie).hide()
     }
   })
 }
@@ -57,11 +50,17 @@ const initializeMovieView = () => {
   })
 }
 
-//Data for matching clicked movie to locations
+//Data for matching clicked movie to locations then function to hide irrelevant locations and show back button
 const loadMovieLocations = (movieId) => {
   movieData.loadMovies()
   .then((movies) => {
-    clickedMovieLocations(movies, movieId);
+    movies.forEach(movie => {
+      if (movie.id === movieId) {
+        let movieLocations = movie.locations;
+        locationsComponent.hideLocations(movieLocations);
+        $('#Back').show();
+      }
+    })
   })
   .catch((error) => {
     console.error('loadmovielocations', error);
