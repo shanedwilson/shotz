@@ -1,6 +1,7 @@
 import locationsData from '../data/locationsData.js'
 
 const writeLocations = arrayofLocations => {
+    $('#locations-div').empty();
     let domString = "";
     arrayofLocations.forEach(location => {
         domString += `
@@ -95,4 +96,4 @@ const hideLocations = (movieLocations) => {
     })
 };
    
-export default {initialLocationsView, chosenLocations, chosenTime, hideLocations}  
+export default {initialLocationsView, chosenLocations, chosenTime, hideLocations, writeLocations}  

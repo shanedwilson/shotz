@@ -36,7 +36,18 @@ const selectedMovie = (selectedMovieId) => {
       $(movie).hide()
     }
   })
-  movieData.getMovieLocations(selectedMovieId);
+  movieData.getMovieLocations(selectedMovieId)
+    .then(selectMovieLocations => {
+      $('#Back').show();
+      return locationsData.matchedLocations(selectMovieLocations);
+    })
+    .then(filteredLocations => {
+      console.log(filteredLocations)
+      locationsComponent.writeLocations(filteredLocations);
+    })
+    .catch(error => {
+      console.error(error);
+    })
   // movieData.loadMovies()
   // .then((movies) => {
   //   movies.forEach(movie => {

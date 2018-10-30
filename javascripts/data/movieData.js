@@ -18,7 +18,6 @@ const getMovieLocations = (selectedMovieId) => {
                 const selectMovieLocations = data.movie.find(movie =>{
                     return movie.id === selectedMovieId;
                 }).locations;
-                console.log(selectMovieLocations);
                 resolve(selectMovieLocations);
             })
             .fail(error => {
