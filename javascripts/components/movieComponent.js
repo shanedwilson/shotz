@@ -1,13 +1,15 @@
 import movieData from "../data/movieData.js";
-import locationsComponent from "../components/locationsComponent.js"
-import locationsData from "../data/locationsData.js"
+import locationsComponent from "../components/locationsComponent.js";
+import locationsData from "../data/locationsData.js";
 
 const writeMovies = arrayofMovies => {
-    let domString = '';
-    arrayofMovies.forEach(movie => {
-      let locationCount = movie.locations.length;
+  let domString = "";
+  arrayofMovies.forEach(movie => {
+    let locationCount = movie.locations.length;
     domString += `
-    <div id="${movie.id}"class="movie card col-md-3 px-0 m-3" style="width: 18rem;">
+    <div id="${
+      movie.id
+    }"class="movie card col-md-3 px-0 m-3" style="width: 18rem;">
       <div class="card-body">
         <div class="thumbnail mb-3">
         <img src="${movie.movieImg}" 
@@ -24,54 +26,43 @@ const writeMovies = arrayofMovies => {
         <p class="text-center">Locations Used: ${locationCount}</p>
       </div>
     </div>
-    `
-    });
-    $("#movie-div").append(domString);
+    `;
+  });
+  $("#movie-div").append(domString);
 };
 
 //Function to show clicked movie
-const selectedMovie = (selectedMovieId) => {
+const selectedMovie = selectedMovieId => {
   $(".movie").each((i, movie) => {
     if (selectedMovieId !== movie.id) {
-      $(movie).hide()
+      $(movie).hide();
     }
-  })
-  movieData.getMovieLocations(selectedMovieId)
+  });
+  movieData
+    .getMovieLocations(selectedMovieId)
     .then(selectMovieLocations => {
-      $('#Back').show();
+      $("#Back").show();
       return locationsData.matchedLocations(selectMovieLocations);
     })
     .then(filteredLocations => {
-      console.log(filteredLocations)
+      console.log(filteredLocations);
       locationsComponent.writeLocations(filteredLocations);
     })
     .catch(error => {
       console.error(error);
-    })
-  // movieData.loadMovies()
-  // .then((movies) => {
-  //   movies.forEach(movie => {
-  //     if (movie.id === selectedMovieId) {
-  //       let movieLocations = movie.locations;
-  //       locationsComponent.hideLocations(movieLocations);
-  //       $('#Back').show();
-  //     }
-  //   })
-  // })
-  // .catch((error) => {
-  //   console.error('loadmovielocations', error);
-  // })
-}
+    });
+};
 
 //Data for movie cards
 const initializeMovieView = () => {
-  movieData.loadMovies()
-  .then((movies) => {
-    writeMovies(movies);
-  })
-  .catch((error) => {
-    console.error(error);
-  })
-}
+  movieData
+    .loadMovies()
+    .then(movies => {
+      writeMovies(movies);
+    })
+    .catch(error => {
+      console.error(error);
+    });
+};
 
-export default {initializeMovieView, selectedMovie,}    
+export default { initializeMovieView, selectedMovie };
