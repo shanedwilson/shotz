@@ -1,28 +1,32 @@
-import locationsComponent from "../components/locationsComponent.js"
-import movieComponent from "../components/movieComponent.js"
+import locationsComponent from "../components/locationsComponent.js";
+import movieComponent from "../components/movieComponent.js";
 
-$( "#search" ).keyup(function () {
-    locationsComponent.chosenLocations($(".form-control").val());
+$("#search").keyup(function() {
+  locationsComponent.chosenLocations($(".form-control").val());
 });
 
-$( "#search" ).submit(function (event) {
-     event.preventDefault();
-    $( ".form-control" ).blur();
-    $('.form-control').val("");
+$("#search").submit(function(event) {
+  event.preventDefault();
+  $(".form-control").blur();
+  $(".form-control").val("");
 });
 
-$('button').on('click', (e) => {
-    const selectedBtn = $(e.target).closest('button').attr('id');
-    locationsComponent.chosenTime(selectedBtn);
+$("button").on("click", e => {
+  const selectedBtn = $(e.target)
+    .closest("button")
+    .attr("id");
+  locationsComponent.chosenTime(selectedBtn);
 });
 
-$('#movie-container').on('click', (e) => {
-    const selectedMovieId = $(e.target).closest('.movie').attr('id');
-    movieComponent.selectedMovie(selectedMovieId);
-})
+$("#movie-container").on("click", e => {
+  const selectedMovieId = $(e.target)
+    .closest(".movie")
+    .attr("id");
+  movieComponent.selectedMovie(selectedMovieId);
+});
 
-$('#Back').on('click', (e) => {
-    $('#Back').hide();
-    locationsComponent.initialLocationsView();
-    movieComponent.initializeMovieView();
-})
+$("#Back").on("click", e => {
+  $("#Back").hide();
+  locationsComponent.initialLocationsView();
+  movieComponent.initializeMovieView();
+});
