@@ -36,6 +36,7 @@ const selectedMovie = selectedMovieId => {
   $(".movie").each((i, movie) => {
     if (selectedMovieId !== movie.id) {
       $(movie).hide();
+      $('#All').hide();
     }
   });
   movieData
@@ -45,8 +46,7 @@ const selectedMovie = selectedMovieId => {
       return locationsData.matchedLocations(selectMovieLocations);
     })
     .then(filteredLocations => {
-      console.log(filteredLocations);
-      locationsComponent.writeLocations(filteredLocations);
+      locationsComponent.writeFilteredLocations(filteredLocations);
     })
     .catch(error => {
       console.error(error);
