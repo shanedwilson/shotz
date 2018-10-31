@@ -1,4 +1,5 @@
 import locationsData from "../data/locationsData.js";
+import movieData from '../data/movieData.js'
 
 const writeLocations = arrayofLocations => {
   $("#locations-div").empty();
@@ -19,7 +20,38 @@ const writeLocations = arrayofLocations => {
                                 <span class="address">${location.address}</span>
                             </p>
                         </div>
-                        <div class="text-center mt-auto">Used in movies</div>
+                        <div class="text-center mt-auto">Used in ${location.movies.length} movies</div>
+                        <div class="caption card-footer mt-auto">
+                            <p class="time text-center">${location.time}</p>
+                        </div>    
+                    </div>
+                </div>
+        `;
+  });
+  //write to dom
+  $("#locations-div").append(domString);
+  timeColor();
+};
+
+const writeFilteredLocations = filteredLocations => {
+  $("#locations-div").empty();
+  let domString = "";
+  filteredLocations.forEach(location => {
+    domString += `
+                <div id="${location.id}"class="location card col-md-3 px-0 m-3">
+                    <div class="card-body d-flex flex-column">
+                        <div class="thumbnail">
+                            <img src="${location.locationImg}" 
+                            alt="" width="100%">
+                        </div>
+                        <div class="caption">
+                            <h3 id="thumbnail-label" class="text-center">${
+                              location.name
+                            }</h3>
+                            <p class='text-center'>
+                                <span class="address">${location.address}</span>
+                            </p>
+                        </div>
                         <div class="caption card-footer mt-auto">
                             <p class="time text-center">${location.time}</p>
                         </div>    
@@ -86,15 +118,31 @@ $.expr[":"].icontains = $.expr.createPseudo(function(text) {
 });
 
 //Data for initial all locations view
+// const initialLocationsView = () => {
+//   locationsData
+//     .loadLocations()
+//     .then(locations => {
+//       writeLocations(locations);
+//     })
+//     .catch(error => {
+//       console.error(error);
+//     });
+// };
+
+//Data for initial all locations view
 const initialLocationsView = () => {
-  locationsData
-    .loadLocations()
-    .then(locations => {
-      writeLocations(locations);
-    })
-    .catch(error => {
-      console.error(error);
+  locationsData.loadLocations().then((locations) => {
+    movieData.loadMovies().then((movies) => {
+      const locationsForMovies = locations.map((location) => {
+        const specificLocation = location;
+        specificLocation.movies = movies.filter(movie => movie.locations.includes(location.id));
+        return specificLocation;
+      });
+      writeLocations(locationsForMovies);
     });
+  }).catch((error) => {
+    console.error(error);
+  });
 };
 
 //Function to show matched locations to clicked movie
@@ -113,5 +161,6 @@ export default {
   chosenLocations,
   chosenTime,
   hideLocations,
-  writeLocations
+  writeLocations,
+  writeFilteredLocations
 };
