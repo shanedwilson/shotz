@@ -28,7 +28,7 @@ const writeMovies = arrayofMovies => {
     </div>
     `;
   });
-  $("#movie-div").append(domString);
+  $("#movie-div").html(domString);
 };
 
 //Function to show clicked movie
