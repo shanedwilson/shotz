@@ -21,8 +21,8 @@
     - Filtering results
   - AJAX call to the json file of locations
 
-![Main Screenshot](./img/Shotz-Main-Screenshot.png)
-![Second Screenshot](./img/Shotz-Screenshot2.png)
+![Main Screenshot](./img/movie-view.png)
+![Second Screenshot](./img/locations-view.png)
 
 
 
