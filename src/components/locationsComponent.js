@@ -1,10 +1,28 @@
-import locationsData from "../data/locationsData.js";
-import movieData from '../data/movieData.js'
+import $ from 'jquery';
 
-const writeLocations = arrayofLocations => {
-  $("#locations-div").empty();
-  let domString = "";
-  arrayofLocations.forEach(location => {
+import locationsData from '../helpers/data/locationsData';
+import movieData from '../helpers/data/movieData';
+
+// Function to match location footer color to time button color
+const timeColor = () => {
+  const times = $('.time');
+  times.each((i, time) => {
+    if ($(time).html() === 'Morning') {
+      $(time).addClass('bg-warning');
+    } else if ($(time).html() === 'Afternoon') {
+      $(time).addClass('bg-primary');
+    } else if ($(time).html() === 'Evening') {
+      $(time).addClass('bg-success');
+    } else if ($(time).html() === 'After Dark') {
+      $(time).addClass('bg-secondary');
+    }
+  });
+};
+
+const writeLocations = (arrayofLocations) => {
+  $('#locations-div').empty();
+  let domString = '';
+  arrayofLocations.forEach((location) => {
     domString += `
                 <div id="${location.id}"class="location card col-md-3 px-0 m-3">
                     <div class="card-body d-flex flex-column">
@@ -14,8 +32,8 @@ const writeLocations = arrayofLocations => {
                         </div>
                         <div class="caption">
                             <h3 id="thumbnail-label" class="text-center">${
-                              location.name
-                            }</h3>
+  location.name
+}</h3>
                             <p class='text-center'>
                                 <span class="address">${location.address}</span>
                             </p>
@@ -28,15 +46,15 @@ const writeLocations = arrayofLocations => {
                 </div>
         `;
   });
-  //write to dom
-  $("#locations-div").append(domString);
+  // write to dom
+  $('#locations-div').append(domString);
   timeColor();
 };
 
-const writeFilteredLocations = filteredLocations => {
-  $("#locations-div").empty();
-  let domString = "";
-  filteredLocations.forEach(location => {
+const writeFilteredLocations = (filteredLocations) => {
+  $('#locations-div').empty();
+  let domString = '';
+  filteredLocations.forEach((location) => {
     domString += `
                 <div id="${location.id}"class="location card col-md-3 px-0 m-3">
                     <div class="card-body d-flex flex-column">
@@ -46,8 +64,8 @@ const writeFilteredLocations = filteredLocations => {
                         </div>
                         <div class="caption">
                             <h3 id="thumbnail-label" class="text-center">${
-                              location.name
-                            }</h3>
+  location.name
+}</h3>
                             <p class='text-center'>
                                 <span class="address">${location.address}</span>
                             </p>
@@ -59,77 +77,47 @@ const writeFilteredLocations = filteredLocations => {
                 </div>
         `;
   });
-  //write to dom
-  $("#locations-div").append(domString);
+  // write to dom
+  $('#locations-div').append(domString);
   timeColor();
 };
 
-//Search function for locations
-const chosenLocations = input => {
-  $(".location").each((i, location) => {
+// Search function for locations
+const chosenLocations = (input) => {
+  $('.location').each((i, location) => {
     $(location)
-      .not(":icontains(" + input + ")")
+      .not(`:icontains(${input})`)
       .hide();
   });
 };
 
-//Function for time buttons
-const chosenTime = selectedBtn => {
-  if (selectedBtn === "All") {
-    $(".location").show();
-    $(".form-control").blur();
-    $(".form-control").val("");
+// Function for time buttons
+const chosenTime = (selectedBtn) => {
+  if (selectedBtn === 'All') {
+    $('.location').show();
+    $('.form-control').blur();
+    $('.form-control').val('');
   } else {
-    $(".location").each((i, location) => {
+    $('.location').each((i, location) => {
       $(location).show();
       $(location)
-        .not(":contains(" + selectedBtn + ")")
+        .not(`:contains(${selectedBtn})`)
         .hide();
     });
   }
 };
 
-//Function to match location footer color to time button color
-const timeColor = () => {
-  let times = $(".time");
-  times.each((i, time) => {
-    if ($(time).html() === "Morning") {
-      $(time).addClass("bg-warning");
-    } else if ($(time).html() === "Afternoon") {
-      $(time).addClass("bg-primary");
-    } else if ($(time).html() === "Evening") {
-      $(time).addClass("bg-success");
-    } else if ($(time).html() === "After Dark") {
-      $(time).addClass("bg-secondary");
-    }
-  });
-};
-
-//Psuedo for jquery contains to change case of input text
-$.expr[":"].icontains = $.expr.createPseudo(function(text) {
-  return function(e) {
-    return (
-      $(e)
-        .text()
-        .toUpperCase()
-        .indexOf(text.toUpperCase()) >= 0
-    );
-  };
+// Psuedo for jquery contains to change case of input text
+$.expr[':'].icontains = $.expr.createPseudo(text => function (e) {
+  return (
+    $(e)
+      .text()
+      .toUpperCase()
+      .indexOf(text.toUpperCase()) >= 0
+  );
 });
 
-//Data for initial all locations view
-// const initialLocationsView = () => {
-//   locationsData
-//     .loadLocations()
-//     .then(locations => {
-//       writeLocations(locations);
-//     })
-//     .catch(error => {
-//       console.error(error);
-//     });
-// };
-
-//Data for initial all locations view
+// Data for initial all locations view
 const initialLocationsView = () => {
   locationsData.loadLocations().then((locations) => {
     movieData.loadMovies().then((movies) => {
@@ -145,22 +133,22 @@ const initialLocationsView = () => {
   });
 };
 
-//Function to show matched locations to clicked movie
-const hideLocations = movieLocations => {
-  $(".location").each((i, location) => {
-    for (let i = 0; i < movieLocations.length; i++) {
-      if ($.inArray(location.id, movieLocations) == -1) {
-        $(location).hide();
-      }
-    }
-  });
-};
+// Function to show matched locations to clicked movie
+// const hideLocations = (movieLocations) => {
+//   $('.location').each((i, location) => {
+//     for (let j = 0; j < movieLocations.length; j +=) {
+//       if ($.inArray(location.id, movieLocations) == -1) {
+//         $(location).hide();
+//       }
+//     }
+//   });
+// };
 
 export default {
   initialLocationsView,
   chosenLocations,
   chosenTime,
-  hideLocations,
+  // hideLocations,
   writeLocations,
-  writeFilteredLocations
+  writeFilteredLocations,
 };

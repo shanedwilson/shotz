@@ -1,15 +1,17 @@
-import movieData from "../data/movieData.js";
-import locationsComponent from "../components/locationsComponent.js";
-import locationsData from "../data/locationsData.js";
+import $ from 'jquery';
 
-const writeMovies = arrayofMovies => {
-  let domString = "";
-  arrayofMovies.forEach(movie => {
-    let locationCount = movie.locations.length;
+import movieData from '../helpers/data/movieData';
+import locationsData from '../helpers/data/locationsData';
+import locationsComponent from './locationsComponent';
+
+const writeMovies = (arrayofMovies) => {
+  let domString = '';
+  arrayofMovies.forEach((movie) => {
+    const locationCount = movie.locations.length;
     domString += `
     <div id="${
-      movie.id
-    }"class="movie card col-md-3 px-0 m-3" style="width: 18rem;">
+  movie.id
+}"class="movie card col-md-3 px-0 m-3" style="width: 18rem;">
       <div class="card-body">
         <div class="thumbnail mb-3">
         <img src="${movie.movieImg}" 
@@ -28,12 +30,12 @@ const writeMovies = arrayofMovies => {
     </div>
     `;
   });
-  $("#movie-div").html(domString);
+  $('#movie-div').html(domString);
 };
 
-//Function to show clicked movie
-const selectedMovie = selectedMovieId => {
-  $(".movie").each((i, movie) => {
+// Function to show clicked movie
+const selectedMovie = (selectedMovieId) => {
+  $('.movie').each((i, movie) => {
     if (selectedMovieId !== movie.id) {
       $(movie).hide();
       $('#All').hide();
@@ -41,26 +43,26 @@ const selectedMovie = selectedMovieId => {
   });
   movieData
     .getMovieLocations(selectedMovieId)
-    .then(selectMovieLocations => {
-      $("#Back").show();
+    .then((selectMovieLocations) => {
+      $('#Back').show();
       return locationsData.matchedLocations(selectMovieLocations);
     })
-    .then(filteredLocations => {
+    .then((filteredLocations) => {
       locationsComponent.writeFilteredLocations(filteredLocations);
     })
-    .catch(error => {
+    .catch((error) => {
       console.error(error);
     });
 };
 
-//Data for movie cards
+// Data for movie cards
 const initializeMovieView = () => {
   movieData
     .loadMovies()
-    .then(movies => {
+    .then((movies) => {
       writeMovies(movies);
     })
-    .catch(error => {
+    .catch((error) => {
       console.error(error);
     });
 };
