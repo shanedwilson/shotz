@@ -24,8 +24,6 @@
 ![Main Screenshot](./img/movie-view.png)
 ![Second Screenshot](./img/locations-view.png)
 
-
-
 ## How to run this project:
 
 * Use nmp to install htpp-server:
