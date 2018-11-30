@@ -1,3 +1,4 @@
+import 'bootstrap';
 import $ from 'jquery';
 
 import movieData from '../helpers/data/movieData';

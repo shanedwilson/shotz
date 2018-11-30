@@ -4,6 +4,8 @@ import $ from 'jquery';
 
 import apiKeys from '../db/apiKeys.json';
 
+import './index.scss';
+
 import locationsComponent from './components/locationsComponent';
 import movieComponent from './components/movieComponent';
 

@@ -1,3 +1,4 @@
+import 'bootstrap';
 import $ from 'jquery';
 
 import locationsData from '../helpers/data/locationsData';
@@ -93,6 +94,7 @@ const chosenLocations = (input) => {
 
 // Function for time buttons
 const chosenTime = (selectedBtn) => {
+  console.log(selectedBtn);
   if (selectedBtn === 'All') {
     $('.location').show();
     $('.form-control').blur();

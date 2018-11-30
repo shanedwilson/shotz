@@ -15,6 +15,7 @@ $('button').on('click', (e) => {
   const selectedBtn = $(e.target)
     .closest('button')
     .attr('id');
+  console.log(selectedBtn);
   locationsComponent.chosenTime(selectedBtn);
 });
 
