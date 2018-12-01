@@ -119,6 +119,16 @@ const hideLocations = (movieLocations) => {
   });
 };
 
+// Psuedo for jquery contains to change case of input text
+$.expr[':'].icontains = $.expr.createPseudo(text => function (e) {
+  return (
+    $(e)
+      .text()
+      .toUpperCase()
+      .indexOf(text.toUpperCase()) >= 0
+  );
+});
+
 export default {
   initialLocationsView,
   chosenLocations,
