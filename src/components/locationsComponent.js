@@ -93,20 +93,20 @@ const chosenLocations = (input) => {
 };
 
 // Function for time buttons
-const chosenTime = (selectedBtn) => {
-  if (selectedBtn === 'All') {
-    $('.location').show();
-    $('.form-control').blur();
-    $('.form-control').val('');
-  } else {
-    $('.location').each((i, location) => {
-      $(location).show();
-      $(location)
-        .not(`:contains(${selectedBtn})`)
-        .hide();
-    });
-  }
-};
+// const chosenTime = (selectedBtn) => {
+//   if (selectedBtn === 'All') {
+//     $('.location').show();
+//     $('.form-control').blur();
+//     $('.form-control').val('');
+//   } else {
+//     $('.location').each((i, location) => {
+//       $(location).show();
+//       $(location)
+//         .not(`:contains(${selectedBtn})`)
+//         .hide();
+//     });
+//   }
+// };
 
 // Psuedo for jquery contains to change case of input text
 $.expr[':'].icontains = $.expr.createPseudo(text => function (e) {
@@ -148,7 +148,7 @@ const initialLocationsView = () => {
 export default {
   initialLocationsView,
   chosenLocations,
-  chosenTime,
+  // chosenTime,
   // hideLocations,
   writeLocations,
   writeFilteredLocations,

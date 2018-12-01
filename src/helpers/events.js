@@ -41,8 +41,19 @@ $('#Back').on('click', () => {
   movieComponent.initializeMovieView();
 });
 
+const showAllEvent = () => {
+  $('#all').on('click', () => {
+    $('.location').show();
+    $('.form-control').blur();
+    $('.form-control').val('');
+    movieComponent.initializeMovieView();
+    locationsComponent.initialLocationsView();
+  });
+};
+
 const bindEvents = () => {
   timeEvent();
+  showAllEvent();
 };
 
 export default { bindEvents };
