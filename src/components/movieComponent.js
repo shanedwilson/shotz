@@ -39,7 +39,7 @@ const selectedMovie = (selectedMovieId) => {
   $('.movie').each((i, movie) => {
     if (selectedMovieId !== movie.id) {
       $(movie).hide();
-      $('#All').hide();
+      $('#all').hide();
     }
   });
   movieData

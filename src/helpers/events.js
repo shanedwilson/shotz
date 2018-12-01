@@ -36,7 +36,7 @@ $('#movie-container').on('click', (e) => {
 
 $('#Back').on('click', () => {
   $('#Back').hide();
-  $('#All').show();
+  $('#all').show();
   locationsComponent.initialLocationsView();
   movieComponent.initializeMovieView();
 });

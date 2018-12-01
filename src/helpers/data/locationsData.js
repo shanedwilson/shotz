@@ -40,23 +40,28 @@ const locationsByTime = timeId => new Promise((resolve, reject) => {
     });
 });
 
-// const matchedLocations = selectMovieLocations => {
-//   return new Promise((resolve, reject) => {
-//     $.get("../db/locations.json")
-//       .done(data => {
-//         let filteredLocations = [];
-//         selectMovieLocations.forEach(movieLocation => {
-//           const filteredLoc = data.locations.filter(location => {
-//             return location.id === movieLocation;
-//           });
-//           filteredLocations.push(filteredLoc[0]);
-//         });
-//         resolve(filteredLocations);
-//       })
-//       .fail(error => {
-//         reject(error);
-//       });
-//   });
-// };
+const matchedLocations = selectMovieLocations => new Promise((resolve, reject) => {
+  axios.get(`${firebaseUrl}/locations.json`)
+    .then((results) => {
+      const matchedLocationsObject = results.data;
+      const matchedLocationsArray = [];
+      if (matchedLocationsObject !== null) {
+        Object.keys(matchedLocationsObject).forEach((location) => {
+          matchedLocationsObject[location].id = location;
+          matchedLocationsArray.push(matchedLocationsObject[location]);
+        });
+        const filteredLocations = [];
+        selectMovieLocations.forEach((movieLocation) => {
+          const filteredLoc = matchedLocationsArray
+            .filter(location => location.id === movieLocation);
+          filteredLocations.push(filteredLoc[0]);
+          resolve(filteredLocations);
+        });
+      }
+    })
+    .catch((error) => {
+      reject(error);
+    });
+});
 
-export default { loadLocations, locationsByTime };
+export default { loadLocations, locationsByTime, matchedLocations };

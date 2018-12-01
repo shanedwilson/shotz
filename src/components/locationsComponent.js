@@ -135,21 +135,21 @@ const initialLocationsView = () => {
 };
 
 // Function to show matched locations to clicked movie
-// const hideLocations = (movieLocations) => {
-//   $('.location').each((i, location) => {
-//     for (let j = 0; j < movieLocations.length; j +=) {
-//       if ($.inArray(location.id, movieLocations) == -1) {
-//         $(location).hide();
-//       }
-//     }
-//   });
-// };
+const hideLocations = (movieLocations) => {
+  $('.location').each((i, location) => {
+    for (let j = 0; j < movieLocations.length; j += 1) {
+      if ($.inArray(location.id, movieLocations) === -1) {
+        $(location).hide();
+      }
+    }
+  });
+};
 
 export default {
   initialLocationsView,
   chosenLocations,
   // chosenTime,
-  // hideLocations,
+  hideLocations,
   writeLocations,
   writeFilteredLocations,
 };
