@@ -22,6 +22,24 @@ const loadLocations = () => new Promise((resolve, reject) => {
     });
 });
 
+const locationsByTime = timeId => new Promise((resolve, reject) => {
+  axios.get(`${firebaseUrl}/locations.json?orderBy="time"&equalTo="${timeId}"`)
+    .then((results) => {
+      const timeLocationsObject = results.data;
+      const timeLocationsArray = [];
+      if (timeLocationsObject !== null) {
+        Object.keys(timeLocationsObject).forEach((location) => {
+          timeLocationsObject[location].id = location;
+          timeLocationsArray.push(timeLocationsObject[location]);
+        });
+      }
+      resolve(timeLocationsArray);
+    })
+    .catch((error) => {
+      reject(error);
+    });
+});
+
 // const matchedLocations = selectMovieLocations => {
 //   return new Promise((resolve, reject) => {
 //     $.get("../db/locations.json")
@@ -41,4 +59,4 @@ const loadLocations = () => new Promise((resolve, reject) => {
 //   });
 // };
 
-export default { loadLocations };
+export default { loadLocations, locationsByTime };

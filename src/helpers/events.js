@@ -1,5 +1,8 @@
+import $ from 'jquery';
+
 import locationsComponent from '../components/locationsComponent';
 import movieComponent from '../components/movieComponent';
+import locationsData from './data/locationsData';
 
 $('#search').keyup(() => {
   locationsComponent.chosenLocations($('.form-control').val());
@@ -11,13 +14,18 @@ $('#search').submit((event) => {
   $('.form-control').val('');
 });
 
-$('button').on('click', (e) => {
-  const selectedBtn = $(e.target)
-    .closest('button')
-    .attr('id');
-  console.log(selectedBtn);
-  locationsComponent.chosenTime(selectedBtn);
-});
+const timeEvent = () => {
+  $('.time-button').on('click', (e) => {
+    const timeId = e.target.id;
+    locationsData.locationsByTime(timeId)
+      .then((timeLocations) => {
+        locationsComponent.writeFilteredLocations(timeLocations);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  });
+};
 
 $('#movie-container').on('click', (e) => {
   const selectedMovieId = $(e.target)
@@ -32,3 +40,9 @@ $('#Back').on('click', () => {
   locationsComponent.initialLocationsView();
   movieComponent.initializeMovieView();
 });
+
+const bindEvents = () => {
+  timeEvent();
+};
+
+export default { bindEvents };
