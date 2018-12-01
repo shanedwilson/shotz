@@ -1,91 +1,78 @@
 {
-    "locations" : [
-        {
-            "id": "location1",
-            "locationImg" : "https://cdn.styleblueprint.com/wp-content/uploads/2016/10/NashCraft.jpg",
-            "name" : "Nashville Craft Distillery",
-            "address": "514 Hagan St, Nashville, TN 37203",
-            "time": "Morning"
-        },
+    "location1" : {
+        "locationImg" : "https://cdn.styleblueprint.com/wp-content/uploads/2016/10/NashCraft.jpg",
+        "name" : "Nashville Craft Distillery",
+        "address": "514 Hagan St, Nashville, TN 37203",
+        "time": "Morning"
+    },
 
-        {
-            "id": "location2",
-            "locationImg" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwB8euX9njd--vGrPXR_Q3SGUHO7jkLdOCJjYreEowXz73akqO",
-            "name" : "H Clark Distillery",
-            "address": "1557 Thompson's Station Rd W, Thompson's Station, TN 37179",
-            "time": "Evening"
-        },
+    "location2" : {
+        "locationImg" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwB8euX9njd--vGrPXR_Q3SGUHO7jkLdOCJjYreEowXz73akqO",
+        "name" : "H Clark Distillery",
+        "address": "1557 Thompson's Station Rd W, Thompson's Station, TN 37179",
+        "time": "Evening"
+    },
 
-        {
-            "id": "location3",
-            "locationImg" : "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Marathon_Motor_Works_1.jpg/1200px-Marathon_Motor_Works_1.jpg",
-            "name" : "Corsair",
-            "address": "1200 Clinton St #110, Nashville, TN 37203",
-            "time": "Afternoon"
-        },
-        
-        {
-            "id": "location4",
-            "locationImg" : "https://media-cdn.tripadvisor.com/media/photo-s/12/40/63/83/still-house-for-leiper.jpg",
-            "name" : "Leiper's Fork Distillery",
-            "address": "3381 Southall Rd, Franklin, TN 37064",
-            "time": "After Dark"
-        },
-        
-        {
-            "id": "location5",
-            "locationImg" : "https://media-cdn.tripadvisor.com/media/photo-s/0d/1b/74/c9/september-17th-visit.jpg",
-            "name" : "Tennessee Hills Distillery",
-            "address" : "127 Fox St, Jonesborough, TN 37659-1309",
-            "time" : "Afternoon"
-        },
+    "location3" : {
+        "locationImg" : "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Marathon_Motor_Works_1.jpg/1200px-Marathon_Motor_Works_1.jpg",
+        "name" : "Corsair",
+        "address": "1200 Clinton St #110, Nashville, TN 37203",
+        "time": "Afternoon"
+    },
+    
+    "location4" : {
+        "locationImg" : "https://media-cdn.tripadvisor.com/media/photo-s/12/40/63/83/still-house-for-leiper.jpg",
+        "name" : "Leiper's Fork Distillery",
+        "address": "3381 Southall Rd, Franklin, TN 37064",
+        "time": "Dark"
+    },
+    
+    "location5" : {
+        "locationImg" : "https://media-cdn.tripadvisor.com/media/photo-s/0d/1b/74/c9/september-17th-visit.jpg",
+        "name" : "Tennessee Hills Distillery",
+        "address" : "127 Fox St, Jonesborough, TN 37659-1309",
+        "time" : "Afternoon"
+    },
 
-        {
-            "id": "location6",
-            "locationImg" : "http://sc-photo-tn.com/wp-content/gallery/2009/dickel/dickel01.jpg",
-            "name" : "George Dickel Distillery",
-            "address" : "1950 Cascade Hollow Rd, Normandy, TN",
-            "time" :"Morning"
-        },
+    "location6" : {
+        "locationImg" : "http://sc-photo-tn.com/wp-content/gallery/2009/dickel/dickel01.jpg",
+        "name" : "George Dickel Distillery",
+        "address" : "1950 Cascade Hollow Rd, Normandy, TN",
+        "time" :"Morning"
+    },
 
-        {
-            "id": "location7",
-            "locationImg" : "https://media.atre.yardi.com/2/48611/images/The-Visitor-Center-at-Jack-Daniel-Distillery.jpg",
-            "name" : "Jack Daniels Distillery",
-            "address" : "Lyncheburg, TN",
-            "time" : "Evening"
-        },
+    "location7" : {
+        "locationImg" : "https://media.atre.yardi.com/2/48611/images/The-Visitor-Center-at-Jack-Daniel-Distillery.jpg",
+        "name" : "Jack Daniels Distillery",
+        "address" : "Lyncheburg, TN",
+        "time" : "Evening"
+    },
 
-        {
-            "id": "location8",
-            "locationImg" : "http://nashvilleguru.com/officialwebsite/wp-content/uploads/2014/11/Marathon-Village-Nashville-54.jpg",
-            "name" : "Nelson's Greenbrier Distillery",
-            "address" : "1414 Clinton Street Nashville, TN 37203",
-            "time" : "Morning"
-        },
+    "location8" : {
+        "locationImg" : "http://nashvilleguru.com/officialwebsite/wp-content/uploads/2014/11/Marathon-Village-Nashville-54.jpg",
+        "name" : "Nelson's Greenbrier Distillery",
+        "address" : "1414 Clinton Street Nashville, TN 37203",
+        "time" : "Morning"
+    },
 
-        {
-            "id": "location9",
-            "locationImg" : "https://assets3.thrillist.com/v1/image/1815690/size/tmg-article_default_mobile.jpg",
-            "name" : "East Nashville Beer Works",
-            "address" : "320 E. Trinity Lane Nashville, TN 37207",
-            "time" : "Morning"
-        },
+    "location9" : {
+        "locationImg" : "https://assets3.thrillist.com/v1/image/1815690/size/tmg-article_default_mobile.jpg",
+        "name" : "East Nashville Beer Works",
+        "address" : "320 E. Trinity Lane Nashville, TN 37207",
+        "time" : "Morning"
+    },
 
-        {
-            "id": "location10",
-            "locationImg" : "https://media-cdn.tripadvisor.com/media/photo-s/0e/95/88/21/what-a-great-place.jpg",
-            "name" : "Calfkiller",
-            "address" : "1839 Blue Springs Road Sparta, Tennessee",
-            "time" : "Afternoon"
-        },
+    "location10" : {
+        "locationImg" : "https://media-cdn.tripadvisor.com/media/photo-s/0e/95/88/21/what-a-great-place.jpg",
+        "name" : "Calfkiller",
+        "address" : "1839 Blue Springs Road Sparta, Tennessee",
+        "time" : "Afternoon"
+    },
 
-        {
-            "id": "location11",
-            "locationImg" : "https://plan.occasiongenius.com/img/cache=expiry:max/compress/resize=fit:crop,width:400,height:350/quality=v:80/output=format:png,strip:true/IvxhhNgwRPyrLAW0wlKL",
-            "name" : "Smith and Lentz",
-            "address" : "903 Main St, Nashville, TN 37206",
-            "time" : "Afternoon"
-        }
-    ]
+    "location11" : {
+        "locationImg" : "https://plan.occasiongenius.com/img/cache=expiry:max/compress/resize=fit:crop,width:400,height:350/quality=v:80/output=format:png,strip:true/IvxhhNgwRPyrLAW0wlKL",
+        "name" : "Smith and Lentz",
+        "address" : "903 Main St, Nashville, TN 37206",
+        "time" : "Afternoon"
+    }
 }

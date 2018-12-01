@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shotz!</title>
+</head>
+<body>
+    
+    <h1 id="title">Shotz!</h1>
+
+    <div id='movie-container'>
+        <div id='movie-div' class = 'row justify-content-center mb-3'></div>   
+    </div>
+
+    <div id="back-btn-container">
+        <div class="row justify-content-center">
+            <button id="Back" type="button" class="btn btn-warning m-3 ">Back</button>
+        </div> 
+    </div>
+
+    <form id='search' class="form-group row justify-content-md-center">
+        <input type="text" class="form-control col-6" placeholder="Enter Search Terms" aria-label="Search" aria-describedby="basic-addon1">
+    </form>
+
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button id="Morning" type="button" class="btn btn-warning m-3 time-button">Morning</button>
+                <button id="Afternoon" type="button" class="btn btn-primary m-3 time-button">Afternoon</button>
+                <button id="Evening" type="button" class="btn btn-success m-3 time-button">Evening</button>
+                <button id="Dark" type="button" class="btn btn-secondary m-3 time-button">After Dark</button>
+                <button id="all" type="button" class="btn btn-danger m-3">Show All</button>
+            </div>
+        </div>
+    </div> 
+    
+    <div id='location-container' class=''></div>
+        <div class = 'row justify-content-center' id="locations-div"></div>
+    </div>
+</body>
+</html>
