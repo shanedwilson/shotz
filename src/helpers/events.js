@@ -37,6 +37,8 @@ $('#movie-container').on('click', (e) => {
 $('#Back').on('click', () => {
   $('#Back').hide();
   $('#all').show();
+  $('.form-control').val('');
+  $('.form-control').blur();
   locationsComponent.initialLocationsView();
   movieComponent.initializeMovieView();
 });
