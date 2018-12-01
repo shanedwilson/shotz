@@ -92,32 +92,6 @@ const chosenLocations = (input) => {
   });
 };
 
-// Function for time buttons
-// const chosenTime = (selectedBtn) => {
-//   if (selectedBtn === 'All') {
-//     $('.location').show();
-//     $('.form-control').blur();
-//     $('.form-control').val('');
-//   } else {
-//     $('.location').each((i, location) => {
-//       $(location).show();
-//       $(location)
-//         .not(`:contains(${selectedBtn})`)
-//         .hide();
-//     });
-//   }
-// };
-
-// Psuedo for jquery contains to change case of input text
-$.expr[':'].icontains = $.expr.createPseudo(text => function (e) {
-  return (
-    $(e)
-      .text()
-      .toUpperCase()
-      .indexOf(text.toUpperCase()) >= 0
-  );
-});
-
 // Data for initial all locations view
 const initialLocationsView = () => {
   locationsData.loadLocations().then((locations) => {
@@ -148,7 +122,6 @@ const hideLocations = (movieLocations) => {
 export default {
   initialLocationsView,
   chosenLocations,
-  // chosenTime,
   hideLocations,
   writeLocations,
   writeFilteredLocations,

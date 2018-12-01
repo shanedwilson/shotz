@@ -21,19 +21,6 @@ const loadMovies = () => new Promise((resolve, reject) => {
     });
 });
 
-// const getMovieLocations = selectedMovieId => new Promise((resolve, reject) => {
-//   axios.get(`${firebaseUrl}/movie.json`)
-//     .then((results) => {
-//       console.log(results);
-//       const selectMovieLocations = results.data.find(movie => movie.id === selectedMovieId)
-//         .locations;
-//       resolve(selectMovieLocations);
-//     })
-//     .catch((error) => {
-//       reject(error);
-//     });
-// });
-
 const getMovieLocations = selectedMovieId => new Promise((resolve, reject) => {
   axios.get(`${firebaseUrl}/movie.json`)
     .then((results) => {
